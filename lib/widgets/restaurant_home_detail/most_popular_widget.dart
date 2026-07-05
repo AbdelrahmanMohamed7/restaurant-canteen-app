@@ -55,8 +55,9 @@ class MostPopularWidget extends StatelessWidget {
                   itemBuilder: animationItemBuilder((index) => GestureDetector(
                         onTap: () async {
                           try {
-                            categoryStateController.selectedCategory.value = lstPopular[index];
-                             Get.to(() => FoodListScreen());
+                            categoryStateController.selectedCategory.value =
+                                lstPopular[index];
+                            Get.to(() => FoodListScreen());
                           } catch (e, stk) {
                             Get.snackbar('Error', e.toString());
                             print(stk);
@@ -64,26 +65,33 @@ class MostPopularWidget extends StatelessWidget {
                           // // print(dataSnapshot.value);
                           // print(lstPopular[index].toJson());
                         },
-                        child: Container(
+                        child: SizedBox(
+                          width: 120,
+                          child: Padding(
                             padding: const EdgeInsets.all(8),
                             child: Column(
+                              mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 CircleAvatar(
                                   backgroundImage:
                                       NetworkImage(lstPopular[index].image),
-                                  minRadius: 40,
-                                  maxRadius: 60,
+                                  radius: 48,
                                 ),
-                                SizedBox(
-                                  height: 5,
+                                const SizedBox(
+                                  height: 4,
                                 ),
                                 Text(
                                   lstPopular[index].name,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
                                   style: GoogleFonts.jetBrainsMono(),
                                 )
                               ],
-                            )),
+                            ),
+                          ),
+                        ),
                       )),
                 ))
               ],
