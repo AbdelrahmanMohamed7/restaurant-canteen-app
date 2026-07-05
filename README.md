@@ -169,8 +169,3 @@ Verified locally with:
 Flutter 3.32.0
 Android emulator API 35
 Android debug APK build
-```
-
-## License
-
-Add a license file if you want to define reuse terms for this project.
